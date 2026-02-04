@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الأدمن | ECS</title>
+    <link rel="icon" href="../images/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <!-- Check Admin Access -->
+    <script>
+        // Check if user is admin
+        if(sessionStorage.getItem('isAdmin') !== 'true') {
+            alert('غير مصرح لك بالدخول إلى هذه الصفحة!');
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logo.ico" alt="ECS">
+                <div class="admin-info">
+                    <h3>Admin Panel</h3>
+                    <p id="adminEmail">anas@gmail.com</p>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#" class="active" onclick="showSection('dashboard')">
+                        <i class="fas fa-chart-line"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-content.html">
+                        <i class="fas fa-palette"></i>
+                        <span>تخصيص الموقع</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showSection('projects')">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>المشاريع</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showSection('courses')">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>الكورسات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showSection('software')">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>البرامج</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showSection('users')">
+                        <i class="fas fa-users"></i>
+                        <span>المستخدمين</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showSection('messages')">
+                        <i class="fas fa-envelope"></i>
+                        <span>الرسائل</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showSection('settings')">
+                        <i class="fas fa-cog"></i>
+                        <span>الإعدادات</span>
+                    </a>
+                </li>
+            </ul>
+
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <div id="dashboard-section" class="section-content">
+                <div class="admin-header">
+                    <h1>مرحباً بك في لوحة التحكم</h1>
+                    <p>إدارة شاملة لموقع ECS</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <h3>إجمالي المشاريع</h3>
+                            <div class="stat-icon primary">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">127</div>
+                        <div class="stat-change up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12% من الشهر الماضي</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <h3>الطلاب المسجلين</h3>
+                            <div class="stat-icon success">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">2,543</div>
+                        <div class="stat-change up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8% من الشهر الماضي</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <h3>الكورسات النشطة</h3>
+                            <div class="stat-icon warning">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">18</div>
+                        <div class="stat-change up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>3 كورسات جديدة</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <h3>الرسائل الجديدة</h3>
+                            <div class="stat-icon danger">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">45</div>
+                        <div class="stat-change down">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>5% من الشهر الماضي</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2>آخر النشاطات</h2>
+                    </div>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>النشاط</th>
+                                <th>المستخدم</th>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>تسجيل في كورس AutoCAD</td>
+                                <td>محمد أحمد</td>
+                                <td>منذ 5 دقائق</td>
+                                <td><span class="status-badge active">مكتمل</span></td>
+                            </tr>
+                            <tr>
+                                <td>طلب مشروع جديد</td>
+                                <td>أحمد علي</td>
+                                <td>منذ 15 دقيقة</td>
+                                <td><span class="status-badge pending">قيد المراجعة</span></td>
+                            </tr>
+                            <tr>
+                                <td>رسالة جديدة</td>
+                                <td>فاطمة محمود</td>
+                                <td>منذ ساعة</td>
+                                <td><span class="status-badge active">جديد</span></td>
+                            </tr>
+                            <tr>
+                                <td>تحميل برنامج Civil 3D</td>
+                                <td>خالد حسن</td>
+                                <td>منذ ساعتين</td>
+                                <td><span class="status-badge active">مكتمل</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div id="projects-section" class="section-content" style="display: none;">
+                <div class="admin-header">
+                    <h1>إدارة المشاريع</h1>
+                    <p>إضافة وتعديل وحذف المشاريع</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2>قائمة المشاريع</h2>
+                        <button class="btn-add" onclick="openModal('addProject')">
+                            <i class="fas fa-plus"></i>
+                            إضافة مشروع جديد
+                        </button>
+                    </div>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>الصورة</th>
+                                <th>اسم المشروع</th>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectsList">
+                            <tr>
+                                <td><img src="../images/projects/111.jpg" alt="Project"></td>
+                                <td>مشروع الضبعة النووي</td>
+                                <td>2024-12-15</td>
+                                <td><span class="status-badge active">نشط</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('project', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="../images/projects/22.jpg" alt="Project"></td>
+                                <td>قلعة صلاح الدين</td>
+                                <td>2024-11-20</td>
+                                <td><span class="status-badge active">نشط</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('project', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="../images/projects/33.jpg" alt="Project"></td>
+                                <td>العاصمة الإدارية الجديدة</td>
+                                <td>2024-10-05</td>
+                                <td><span class="status-badge active">نشط</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('project', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Courses Section -->
+            <div id="courses-section" class="section-content" style="display: none;">
+                <div class="admin-header">
+                    <h1>إدارة الكورسات</h1>
+                    <p>إضافة وتعديل وحذف الكورسات التدريبية</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2>قائمة الكورسات</h2>
+                        <button class="btn-add" onclick="openModal('addCourse')">
+                            <i class="fas fa-plus"></i>
+                            إضافة كورس جديد
+                        </button>
+                    </div>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>اسم الكورس</th>
+                                <th>المدة</th>
+                                <th>السعر</th>
+                                <th>عدد الطلاب</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AutoCAD المتقدم</td>
+                                <td>3 أشهر</td>
+                                <td>2500 جنيه</td>
+                                <td>145</td>
+                                <td><span class="status-badge active">نشط</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('course', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Civil 3D للمبتدئين</td>
+                                <td>2 أشهر</td>
+                                <td>2000 جنيه</td>
+                                <td>98</td>
+                                <td><span class="status-badge active">نشط</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('course', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Revit Architecture</td>
+                                <td>4 أشهر</td>
+                                <td>3000 جنيه</td>
+                                <td>76</td>
+                                <td><span class="status-badge pending">قريباً</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('course', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Software Section -->
+            <div id="software-section" class="section-content" style="display: none;">
+                <div class="admin-header">
+                    <h1>إدارة البرامج</h1>
+                    <p>إضافة وتعديل وحذف البرامج الهندسية</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2>قائمة البرامج</h2>
+                        <button class="btn-add" onclick="openModal('addSoftware')">
+                            <i class="fas fa-plus"></i>
+                            إضافة برنامج جديد
+                        </button>
+                    </div>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>اسم البرنامج</th>
+                                <th>الإصدار</th>
+                                <th>الحجم</th>
+                                <th>التحميلات</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AutoCAD 2024</td>
+                                <td>2024.1</td>
+                                <td>3.5 GB</td>
+                                <td>523</td>
+                                <td><span class="status-badge active">متاح</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('software', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Civil 3D 2024</td>
+                                <td>2024</td>
+                                <td>4.2 GB</td>
+                                <td>387</td>
+                                <td><span class="status-badge active">متاح</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('software', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Revit 2024</td>
+                                <td>2024.2</td>
+                                <td>5.1 GB</td>
+                                <td>298</td>
+                                <td><span class="status-badge inactive">غير متاح</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('software', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div id="users-section" class="section-content" style="display: none;">
+                <div class="admin-header">
+                    <h1>إدارة المستخدمين</h1>
+                    <p>عرض وإدارة حسابات المستخدمين</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2>قائمة المستخدمين</h2>
+                        <button class="btn-add" onclick="openModal('addUser')">
+                            <i class="fas fa-plus"></i>
+                            إضافة مستخدم
+                        </button>
+                    </div>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>الاسم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>نوع الحساب</th>
+                                <th>تاريخ التسجيل</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>محمد أحمد</td>
+                                <td>mohamed@example.com</td>
+                                <td>طالب</td>
+                                <td>2024-01-15</td>
+                                <td><span class="status-badge active">نشط</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('user', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>فاطمة علي</td>
+                                <td>fatma@example.com</td>
+                                <td>طالب</td>
+                                <td>2024-02-20</td>
+                                <td><span class="status-badge active">نشط</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('user', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Messages Section -->
+            <div id="messages-section" class="section-content" style="display: none;">
+                <div class="admin-header">
+                    <h1>الرسائل الواردة</h1>
+                    <p>عرض والرد على رسائل العملاء</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2>صندوق الوارد</h2>
+                    </div>
+                    
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>المرسل</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>الموضوع</th>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>أحمد محمود</td>
+                                <td>ahmed@example.com</td>
+                                <td>استفسار عن كورس AutoCAD</td>
+                                <td>2024-02-03</td>
+                                <td><span class="status-badge pending">جديد</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('message', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>سارة حسن</td>
+                                <td>sara@example.com</td>
+                                <td>طلب عرض سعر</td>
+                                <td>2024-02-02</td>
+                                <td><span class="status-badge active">تم الرد</span></td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn-action btn-edit"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete" onclick="deleteItem('message', this)"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings-section" class="section-content" style="display: none;">
+                <div class="admin-header">
+                    <h1>إعدادات الموقع</h1>
+                    <p>تخصيص إعدادات الموقع العامة</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2>الإعدادات العامة</h2>
+                    </div>
+                    
+                    <form class="admin-form" onsubmit="saveSettings(event)">
+                        <div class="form-group">
+                            <label>اسم الموقع</label>
+                            <input type="text" value="ECS - Engineering & Surveying" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" value="info@ecs-egypt.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="tel" value="+20 123 456 7890" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>العنوان</label>
+                            <input type="text" value="القاهرة، مصر" required>
+                        </div>
+                        
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>وصف الموقع</label>
+                            <textarea required>شركة ECS الرائدة في مجال المساحة والهندسة المدنية. نقدم حلولاً متكاملة باستخدام أحدث التقنيات العالمية.</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>رابط فيسبوك</label>
+                            <input type="url" value="https://facebook.com/ecs">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>رابط تويتر</label>
+                            <input type="url" value="https://twitter.com/ecs">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>رابط انستجرام</label>
+                            <input type="url" value="https://instagram.com/ecs">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>رابط لينكد إن</label>
+                            <input type="url" value="https://linkedin.com/company/ecs">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn-cancel">إلغاء</button>
+                            <button type="submit" class="btn-submit">حفظ التغييرات</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Project Modal -->
+    <div id="addProject" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>إضافة مشروع جديد</h2>
+                <button class="modal-close" onclick="closeModal('addProject')">&times;</button>
+            </div>
+            <form class="admin-form" onsubmit="addProject(event)">
+                <div class="form-group">
+                    <label>اسم المشروع</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>التاريخ</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>الوصف</label>
+                    <textarea required></textarea>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>رفع صورة</label>
+                    <input type="file" accept="image/*" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('addProject')">إلغاء</button>
+                    <button type="submit" class="btn-submit">إضافة</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Course Modal -->
+    <div id="addCourse" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>إضافة كورس جديد</h2>
+                <button class="modal-close" onclick="closeModal('addCourse')">&times;</button>
+            </div>
+            <form class="admin-form" onsubmit="addCourse(event)">
+                <div class="form-group">
+                    <label>اسم الكورس</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>المدة</label>
+                    <input type="text" placeholder="مثال: 3 أشهر" required>
+                </div>
+                <div class="form-group">
+                    <label>السعر</label>
+                    <input type="number" placeholder="بالجنيه" required>
+                </div>
+                <div class="form-group">
+                    <label>المستوى</label>
+                    <select required>
+                        <option value="">اختر المستوى</option>
+                        <option value="beginner">مبتدئ</option>
+                        <option value="intermediate">متوسط</option>
+                        <option value="advanced">متقدم</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>الوصف</label>
+                    <textarea required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('addCourse')">إلغاء</button>
+                    <button type="submit" class="btn-submit">إضافة</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Software Modal -->
+    <div id="addSoftware" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>إضافة برنامج جديد</h2>
+                <button class="modal-close" onclick="closeModal('addSoftware')">&times;</button>
+            </div>
+            <form class="admin-form" onsubmit="addSoftware(event)">
+                <div class="form-group">
+                    <label>اسم البرنامج</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>الإصدار</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>الحجم</label>
+                    <input type="text" placeholder="مثال: 3.5 GB" required>
+                </div>
+                <div class="form-group">
+                    <label>النوع</label>
+                    <select required>
+                        <option value="">اختر النوع</option>
+                        <option value="design">تصميم</option>
+                        <option value="survey">مساحة</option>
+                        <option value="analysis">تحليل</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>الوصف</label>
+                    <textarea required></textarea>
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>رابط التحميل</label>
+                    <input type="url" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('addSoftware')">إلغاء</button>
+                    <button type="submit" class="btn-submit">إضافة</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUser" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>إضافة مستخدم جديد</h2>
+                <button class="modal-close" onclick="closeModal('addUser')">&times;</button>
+            </div>
+            <form class="admin-form" onsubmit="addUser(event)">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" required>
+                </div>
+                <div class="form-group">
+                    <label>نوع الحساب</label>
+                    <select required>
+                        <option value="">اختر النوع</option>
+                        <option value="student">طالب</option>
+                        <option value="instructor">مدرب</option>
+                        <option value="admin">أدمن</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('addUser')">إلغاء</button>
+                    <button type="submit" class="btn-submit">إضافة</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Display admin email
+        document.getElementById('adminEmail').textContent = sessionStorage.getItem('adminEmail');
+
+        // Show/Hide sections
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(sec => {
+                sec.style.display = 'none';
+            });
+            
+            // Remove active class from all menu items
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(section + '-section').style.display = 'block';
+            
+            // Add active class to clicked menu item
+            event.target.closest('a').classList.add('active');
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Delete item
+        function deleteItem(type, button) {
+            if(confirm('هل أنت متأكد من حذف هذا العنصر؟')) {
+                button.closest('tr').remove();
+                alert('تم الحذف بنجاح!');
+            }
+        }
+
+        // Add forms handlers
+        function addProject(e) {
+            e.preventDefault();
+            alert('تم إضافة المشروع بنجاح!');
+            closeModal('addProject');
+            e.target.reset();
+        }
+
+        function addCourse(e) {
+            e.preventDefault();
+            alert('تم إضافة الكورس بنجاح!');
+            closeModal('addCourse');
+            e.target.reset();
+        }
+
+        function addSoftware(e) {
+            e.preventDefault();
+            alert('تم إضافة البرنامج بنجاح!');
+            closeModal('addSoftware');
+            e.target.reset();
+        }
+
+        function addUser(e) {
+            e.preventDefault();
+            alert('تم إضافة المستخدم بنجاح!');
+            closeModal('addUser');
+            e.target.reset();
+        }
+
+        function saveSettings(e) {
+            e.preventDefault();
+            alert('تم حفظ الإعدادات بنجاح!');
+        }
+
+        // Logout function
+        function logout() {
+            if(confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+                sessionStorage.removeItem('isAdmin');
+                sessionStorage.removeItem('adminEmail');
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if(event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+
+        // Mobile sidebar toggle
+        const menuToggle = document.createElement('button');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        menuToggle.style.cssText = 'display: none; position: fixed; top: 20px; right: 20px; z-index: 1000; background: var(--admin-primary); border: none; color: white; width: 50px; height: 50px; border-radius: 10px; cursor: pointer; font-size: 20px;';
+        
+        if(window.innerWidth <= 768) {
+            menuToggle.style.display = 'block';
+            document.body.appendChild(menuToggle);
+            
+            menuToggle.addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('active');
+            });
+        }
+
+        window.addEventListener('resize', function() {
+            if(window.innerWidth <= 768) {
+                menuToggle.style.display = 'block';
+                if(!document.body.contains(menuToggle)) {
+                    document.body.appendChild(menuToggle);
+                }
+            } else {
+                menuToggle.style.display = 'none';
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

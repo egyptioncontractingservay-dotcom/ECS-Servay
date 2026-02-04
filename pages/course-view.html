@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكورس - AutoCAD المتقدم | ECS</title>
+    <link rel="icon" href="../images/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/course-view.css">
+</head>
+<body>
+    <div class="bg-wrapper">
+        <div class="stars"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../images/logo.ico" alt="ECS">
+                <div class="logo-txt">
+                    <span class="main-logo">ECS</span>
+                    <span class="sub-logo">Engineering & Surveying</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="software.html">البرامج</a></li>
+                <li><a href="login.html" class="login-pill">دخول الأعضاء</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Course Header -->
+    <section class="course-header">
+        <div class="course-header-content">
+            <div class="course-badge">
+                <i class="fas fa-star"></i>
+                <span>الأكثر مبيعاً</span>
+            </div>
+            <h1 class="course-title">AutoCAD المتقدم - دورة شاملة</h1>
+            <p class="course-subtitle">احترف برنامج AutoCAD من البداية حتى الاحتراف مع مشاريع عملية</p>
+            
+            <div class="course-meta">
+                <div class="meta-item">
+                    <i class="fas fa-user"></i>
+                    <span>المدرب: م. أحمد محمود</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span>2,543 طالب مسجل</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-star"></i>
+                    <span>4.8/5 (523 تقييم)</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>آخر تحديث: يناير 2025</span>
+                </div>
+            </div>
+
+            <div class="course-actions">
+                <button class="btn-enroll" onclick="enrollCourse()">
+                    <i class="fas fa-graduation-cap"></i>
+                    سجل الآن - 2500 جنيه
+                </button>
+                <button class="btn-preview" onclick="showPreview()">
+                    <i class="fas fa-play"></i>
+                    معاينة مجانية
+                </button>
+                <button class="btn-wishlist">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <div class="course-container">
+        <div class="course-main">
+            <!-- Tabs -->
+            <div class="course-tabs">
+                <button class="tab-btn active" onclick="showTab('overview')">
+                    <i class="fas fa-info-circle"></i>
+                    نظرة عامة
+                </button>
+                <button class="tab-btn" onclick="showTab('curriculum')">
+                    <i class="fas fa-list"></i>
+                    المنهج الدراسي
+                </button>
+                <button class="tab-btn" onclick="showTab('instructor')">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    المدرب
+                </button>
+                <button class="tab-btn" onclick="showTab('reviews')">
+                    <i class="fas fa-star"></i>
+                    التقييمات
+                </button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div id="overview-tab" class="tab-content active">
+                <div class="content-card">
+                    <h2>ما الذي ستتعلمه؟</h2>
+                    <div class="learning-outcomes">
+                        <div class="outcome-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>إتقان واجهة AutoCAD والأوامر الأساسية بشكل احترافي</span>
+                        </div>
+                        <div class="outcome-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>رسم المخططات المعمارية والإنشائية بدقة عالية</span>
+                        </div>
+                        <div class="outcome-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>استخدام الـ Blocks والـ Dynamic Blocks بكفاءة</span>
+                        </div>
+                        <div class="outcome-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>إخراج اللوحات النهائية للطباعة بشكل احترافي</span>
+                        </div>
+                        <div class="outcome-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>تطبيق عملي على مشاريع حقيقية في السوق</span>
+                        </div>
+                        <div class="outcome-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>التعامل مع الـ 3D وإنشاء نماذج ثلاثية الأبعاد</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h2>متطلبات الكورس</h2>
+                    <ul class="requirements-list">
+                        <li><i class="fas fa-laptop"></i> كمبيوتر بمواصفات متوسطة</li>
+                        <li><i class="fas fa-download"></i> برنامج AutoCAD (سيتم توفير نسخة تجريبية)</li>
+                        <li><i class="fas fa-brain"></i> الرغبة في التعلم والممارسة</li>
+                        <li><i class="fas fa-clock"></i> 2-3 ساعات أسبوعياً للدراسة</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h2>وصف الكورس</h2>
+                    <p class="course-description">
+                        هذا الكورس هو دورة شاملة ومتكاملة لتعلم برنامج AutoCAD من الصفر حتى الاحتراف. تم تصميم المنهج بعناية فائقة ليناسب جميع المستويات، سواء كنت مبتدئاً تماماً أو لديك خلفية بسيطة عن البرنامج.
+                    </p>
+                    <p class="course-description">
+                        خلال هذه الدورة، ستتعلم كيفية استخدام AutoCAD في المشاريع الحقيقية، بدءاً من الأوامر الأساسية وحتى التقنيات المتقدمة. سنغطي جميع جوانب البرنامج من خلال أمثلة عملية ومشاريع تطبيقية تحاكي الواقع المهني.
+                    </p>
+                    <p class="course-description">
+                        المنهج يتضمن أكثر من 50 درس فيديو عالي الجودة، مع ملفات التدريب وشروحات مكتوبة وتمارين عملية. كما ستحصل على شهادة إتمام معتمدة من ECS عند انتهاء الكورس بنجاح.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h2>ماذا ستحصل عليه؟</h2>
+                    <div class="course-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h4>52 درس فيديو</h4>
+                            <p>محتوى عالي الجودة بإجمالي 15 ساعة</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-download"></i>
+                            </div>
+                            <h4>ملفات تدريبية</h4>
+                            <p>جميع ملفات المشاريع والتمارين</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h4>شهادة معتمدة</h4>
+                            <p>شهادة إتمام من ECS</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <h4>وصول مدى الحياة</h4>
+                            <p>شاهد الكورس متى شئت</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4>على جميع الأجهزة</h4>
+                            <p>كمبيوتر، موبايل، تابلت</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4>دعم فني</h4>
+                            <p>الرد على جميع استفساراتك</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Curriculum Tab -->
+            <div id="curriculum-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>المنهج الدراسي - 6 أقسام • 52 درس • 15 ساعة</h2>
+                    
+                    <div class="curriculum-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-info">
+                                <i class="fas fa-chevron-down"></i>
+                                <h3>القسم 1: مقدمة وأساسيات AutoCAD</h3>
+                                <span class="section-meta">8 دروس • 1.5 ساعة</span>
+                            </div>
+                            <button class="preview-btn">معاينة</button>
+                        </div>
+                        <div class="section-content">
+                            <div class="lesson-item">
+                                <div class="lesson-info">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>1. مرحباً بك في AutoCAD</span>
+                                    <span class="lesson-duration">10:23</span>
+                                </div>
+                                <button class="preview-lesson-btn" onclick="playVideo('intro')">
+                                    <i class="fas fa-eye"></i> معاينة
+                                </button>
+                            </div>
+                            <div class="lesson-item">
+                                <div class="lesson-info">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>2. واجهة البرنامج والتعرف على الأدوات</span>
+                                    <span class="lesson-duration">15:45</span>
+                                </div>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="lesson-item">
+                                <div class="lesson-info">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>3. إعدادات البرنامج الأساسية</span>
+                                    <span class="lesson-duration">12:30</span>
+                                </div>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="lesson-item">
+                                <div class="lesson-info">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>4. نظام الإحداثيات والوحدات</span>
+                                    <span class="lesson-duration">18:20</span>
+                                </div>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="lesson-item quiz">
+                                <div class="lesson-info">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>اختبار القسم الأول</span>
+                                    <span class="lesson-duration">5 أسئلة</span>
+                                </div>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="curriculum-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-info">
+                                <i class="fas fa-chevron-down"></i>
+                                <h3>القسم 2: أوامر الرسم الأساسية</h3>
+                                <span class="section-meta">12 درس • 2.5 ساعة</span>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="lesson-item locked">
+                                <div class="lesson-info">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>1. أوامر Line و Polyline</span>
+                                    <span class="lesson-duration">14:15</span>
+                                </div>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="lesson-item locked">
+                                <div class="lesson-info">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>2. رسم الدوائر والأقواس</span>
+                                    <span class="lesson-duration">16:40</span>
+                                </div>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <!-- المزيد من الدروس -->
+                        </div>
+                    </div>
+
+                    <div class="curriculum-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-info">
+                                <i class="fas fa-chevron-down"></i>
+                                <h3>القسم 3: أوامر التعديل</h3>
+                                <span class="section-meta">10 دروس • 2 ساعة</span>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <div class="lesson-item locked">
+                                <div class="lesson-info">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>1. أوامر Move و Copy</span>
+                                    <span class="lesson-duration">13:25</span>
+                                </div>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="curriculum-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-info">
+                                <i class="fas fa-chevron-down"></i>
+                                <h3>القسم 4: الطبقات والبلوكات</h3>
+                                <span class="section-meta">8 دروس • 2 ساعة</span>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <!-- دروس القسم -->
+                        </div>
+                    </div>
+
+                    <div class="curriculum-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-info">
+                                <i class="fas fa-chevron-down"></i>
+                                <h3>القسم 5: مشاريع عملية</h3>
+                                <span class="section-meta">10 دروس • 4 ساعات</span>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <!-- دروس القسم -->
+                        </div>
+                    </div>
+
+                    <div class="curriculum-section">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <div class="section-info">
+                                <i class="fas fa-chevron-down"></i>
+                                <h3>القسم 6: التقنيات المتقدمة</h3>
+                                <span class="section-meta">4 دروس • 3 ساعات</span>
+                            </div>
+                        </div>
+                        <div class="section-content">
+                            <!-- دروس القسم -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instructor Tab -->
+            <div id="instructor-tab" class="tab-content">
+                <div class="content-card">
+                    <div class="instructor-profile">
+                        <div class="instructor-avatar">
+                            <img src="https://ui-avatars.com/api/?name=Ahmed+Mahmoud&background=06b6d4&color=fff&size=200" alt="Instructor">
+                        </div>
+                        <div class="instructor-details">
+                            <h2>م. أحمد محمود</h2>
+                            <p class="instructor-title">مهندس مدني - خبير AutoCAD و Civil 3D</p>
+                            <div class="instructor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 تقييم المدرب</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>15,234 طالب</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>12 كورس</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>8+ سنوات خبرة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="instructor-bio">
+                        <h3>نبذة عن المدرب</h3>
+                        <p>
+                            مهندس مدني معتمد مع أكثر من 8 سنوات من الخبرة في مجال التصميم الهندسي باستخدام برامج Autodesk. عملت على أكثر من 200 مشروع هندسي مختلف، من المباني السكنية إلى المشاريع الضخمة.
+                        </p>
+                        <p>
+                            متخصص في التدريب الهندسي ولدي شغف بمساعدة الطلاب على تحقيق أهدافهم المهنية. درّبت أكثر من 15,000 طالب في مختلف أنحاء العالم العربي.
+                        </p>
+                        <h4>الشهادات والخبرات:</h4>
+                        <ul>
+                            <li>✓ بكالوريوس هندسة مدنية - جامعة القاهرة</li>
+                            <li>✓ شهادة Autodesk Certified Professional</li>
+                            <li>✓ مدرب معتمد في Civil 3D و AutoCAD</li>
+                            <li>✓ خبرة 8+ سنوات في شركات هندسية كبرى</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div id="reviews-tab" class="tab-content">
+                <div class="content-card">
+                    <h2>تقييمات الطلاب</h2>
+                    <div class="rating-overview">
+                        <div class="rating-score">
+                            <div class="score-number">4.8</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>تقييم الكورس</p>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar">
+                                <span>5 نجوم</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 75%"></div>
+                                </div>
+                                <span>75%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>4 نجوم</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 18%"></div>
+                                </div>
+                                <span>18%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>3 نجوم</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 5%"></div>
+                                </div>
+                                <span>5%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>2 نجوم</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 1%"></div>
+                                </div>
+                                <span>1%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>نجمة واحدة</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 1%"></div>
+                                </div>
+                                <span>1%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <img src="https://ui-avatars.com/api/?name=Mohamed+Ali&background=random" alt="Student">
+                                    <div>
+                                        <h4>محمد علي</h4>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="review-date">منذ أسبوع</span>
+                            </div>
+                            <p class="review-text">
+                                كورس ممتاز جداً! الشرح واضح ومفصل، والمدرب محترف. تعلمت الكثير واستطعت تطبيق ما تعلمته في مشاريع حقيقية. أنصح به بشدة لكل من يريد احتراف AutoCAD.
+                            </p>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <img src="https://ui-avatars.com/api/?name=Fatma+Hassan&background=random" alt="Student">
+                                    <div>
+                                        <h4>فاطمة حسن</h4>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="review-date">منذ أسبوعين</span>
+                            </div>
+                            <p class="review-text">
+                                المحتوى منظم بشكل رائع والتمارين العملية مفيدة جداً. حصلت على شهادة معتمدة ساعدتني في الحصول على وظيفة. شكراً للمهندس أحمد!
+                            </p>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <img src="https://ui-avatars.com/api/?name=Ahmed+Khaled&background=random" alt="Student">
+                                    <div>
+                                        <h4>أحمد خالد</h4>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="review-date">منذ 3 أسابيع</span>
+                            </div>
+                            <p class="review-text">
+                                كورس جيد جداً وشامل. كنت أتمنى لو كان هناك مشاريع أكثر، لكن بشكل عام راضي جداً عن المحتوى والدعم الفني.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="course-sidebar">
+            <div class="sidebar-card video-preview">
+                <div class="video-placeholder" onclick="showPreview()">
+                    <i class="fas fa-play-circle"></i>
+                    <span>معاينة الكورس</span>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="price-section">
+                    <div class="current-price">2,500 جنيه</div>
+                    <div class="original-price">3,500 جنيه</div>
+                    <div class="discount-badge">خصم 29%</div>
+                </div>
+                
+                <button class="btn-enroll-sidebar" onclick="enrollCourse()">
+                    <i class="fas fa-graduation-cap"></i>
+                    سجل الآن
+                </button>
+
+                <div class="course-includes">
+                    <h4>يتضمن هذا الكورس:</h4>
+                    <ul>
+                        <li><i class="fas fa-video"></i> 15 ساعة فيديو حسب الطلب</li>
+                        <li><i class="fas fa-file-download"></i> 25 ملف للتحميل</li>
+                        <li><i class="fas fa-infinity"></i> وصول كامل مدى الحياة</li>
+                        <li><i class="fas fa-mobile-alt"></i> الوصول على الموبايل والتابلت</li>
+                        <li><i class="fas fa-certificate"></i> شهادة إتمام</li>
+                        <li><i class="fas fa-undo"></i> ضمان استرداد المال لمدة 30 يوم</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h4>شارك هذا الكورس</h4>
+                <div class="share-buttons">
+                    <button class="share-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button class="share-btn twitter">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="share-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </button>
+                    <button class="share-btn linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <button class="video-close" onclick="closeVideo()">&times;</button>
+            <div class="video-container">
+                <iframe id="videoPlayer" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function toggleSection(header) {
+            const section = header.parentElement;
+            const content = section.querySelector('.section-content');
+            const icon = header.querySelector('.fa-chevron-down');
+            
+            section.classList.toggle('active');
+            if(section.classList.contains('active')) {
+                content.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function enrollCourse() {
+            const isLoggedIn = sessionStorage.getItem('isAdmin') || sessionStorage.getItem('userLoggedIn');
+            if(!isLoggedIn) {
+                if(confirm('يجب تسجيل الدخول أولاً. هل تريد الذهاب لصفحة تسجيل الدخول؟')) {
+                    window.location.href = 'login.html';
+                }
+            } else {
+                alert('تم التسجيل في الكورس بنجاح! سيتم تحويلك لصفحة الدفع...');
+                // Redirect to payment or course page
+            }
+        }
+
+        function showPreview() {
+            playVideo('https://www.youtube.com/embed/gcBhuT6V-6M');
+        }
+
+        function playVideo(url) {
+            document.getElementById('videoModal').style.display = 'flex';
+            document.getElementById('videoPlayer').src = url;
+        }
+
+        function closeVideo() {
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('videoPlayer').src = '';
+        }
+
+        // Close video on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('videoModal');
+            if(event.target === modal) {
+                closeVideo();
+            }
+        }
+    </script>
+</body>
+</html>

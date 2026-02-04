@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكورسات التدريبية | ECS</title>
+    <link rel="icon" href="../images/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    <link rel="stylesheet" href="../css/enhancements.css">
+
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-wrapper">
+        <div class="stars"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../images/logo.ico" alt="ECS">
+                <div class="logo-txt">
+                    <span class="main-logo">ECS</span>
+                    <span class="sub-logo">Engineering & Surveying</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="../index.html#services">خدماتنا</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="software.html">البرامج</a></li>
+                <li><a href="login.html" class="login-pill">دخول الأعضاء</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Courses Section -->
+    <section class="courses-section">
+        <h1 class="section-title" data-aos="fade-up">الكورسات التدريبية</h1>
+        <p style="text-align: center; color: #94a3b8; max-width: 800px; margin: 0 auto 20px;" data-aos="fade-up" data-aos-delay="100">
+            برامج تدريبية احترافية مع شهادات معتمدة ودعم فني مستمر
+        </p>
+
+        <!-- Engineering Courses -->
+        <h2 style="color: var(--cyan); margin: 50px 0 30px; font-size: 2rem;" data-aos="fade-up">الكورسات الهندسية</h2>
+        
+        <div class="courses-grid">
+            <!-- Civil 3D Course -->
+            <div class="course-card" data-aos="zoom-in">
+                <div class="course-image">
+                    <i class="fas fa-drafting-compass"></i>
+                </div>
+                <div class="course-content">
+                    <h3>Civil 3D </h3>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>30 ساعة</span>
+							
+                        </div>
+						<div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>10 محاضرات </span>
+							
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>متقدم</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        تعلم التصميم الهندسي المتقدم باستخدام Autodesk Civil 3D من الصفر حتى الاحتراف
+                    </p>
+                    <ul class="course-topics">
+                        <li>تصميم الطرق والشوارع</li>
+                        <li>تصميم شبكات الصرف الصحي</li>
+                        <li>تصميم المواقع والتسوية</li>
+                        <li>حساب الكميات التفصيلية</li>
+                        <li>إنشاء المقاطع الطولية والعرضية</li>
+                    </ul>
+                    <div class="course-price">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('Civil 3D')">التسجيل في الكورس</button>
+                </div>
+            </div>
+
+            <!-- AutoCAD Course -->
+            <div class="course-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="course-image">
+                    <i class="fas fa-draw-polygon"></i>
+                </div>
+                <div class="course-content">
+                    <h3>AutoCAD - الرسم الهندسي</h3>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>30 ساعة</span>
+                        </div>
+						<div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>10 محاضرات </span>
+							
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>مبتدئ-متوسط</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        أساسيات ومتقدم AutoCAD للرسم الهندسي الاحترافي في جميع التخصصات
+                    </p>
+                    <ul class="course-topics">
+                        <li>واجهة البرنامج وأدوات الرسم</li>
+                        <li>التعديل والتحرير المتقدم</li>
+                        <li>الطبقات والألوان والخطوط</li>
+                        <li>الأبعاد والتعليقات</li>
+                        <li>الطباعة والإخراج النهائي</li>
+                    </ul>
+                    <div class="course-price">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('AutoCAD')">التسجيل في الكورس</button>
+                </div>
+            </div>
+
+            <!-- GIS Course -->
+            <div class="course-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="course-image">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="course-content">
+                    <h3>GIS - نظم المعلومات الجغرافية</h3>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>35 ساعة</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>متوسط-متقدم</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        تعلم استخدام نظم المعلومات الجغرافية في التحليل المكاني وإنتاج الخرائط
+                    </p>
+                    <ul class="course-topics">
+                        <li>مقدمة في نظم GIS</li>
+                        <li>ArcGIS Pro المتقدم</li>
+                        <li>التحليل المكاني</li>
+                        <li>معالجة البيانات الجغرافية</li>
+                        <li>إنتاج الخرائط الاحترافية</li>
+                    </ul>
+                    <div class="course-price">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('GIS')">التسجيل في الكورس</button>
+                </div>
+            </div>
+
+            <!-- Excel Course -->
+            <div class="course-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="course-image">
+                    <i class="fas fa-file-excel"></i>
+                </div>
+                <div class="course-content">
+                    <h3>Microsoft Excel المتقدم</h3>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>25 ساعة</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>متوسط</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        تعلم Excel من الأساسيات إلى الاحتراف - معادلات متقدمة، تحليل بيانات، ماكرو
+                    </p>
+                    <ul class="course-topics">
+                        <li>المعادلات والدوال المتقدمة</li>
+                        <li>الجداول المحورية Pivot Tables</li>
+                        <li>تحليل البيانات وإنشاء التقارير</li>
+                        <li>الماكرو وVBA للأتمتة</li>
+                        <li>الرسوم البيانية الاحترافية</li>
+                    </ul>
+                    <div class="course-price">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('Microsoft Excel')">التسجيل في الكورس</button>
+                </div>
+            </div>
+
+            <!-- Total Station Course -->
+            <div class="course-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="course-image">
+                    <i class="fas fa-compass"></i>
+                </div>
+                <div class="course-content">
+                    <h3>Total Station - التدريب العملي</h3>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>20 ساعة</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>عملي</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        التدريب العملي على استخدام أجهزة Total Station في الرفع المساحي
+                    </p>
+                    <ul class="course-topics">
+                        <li>مكونات جهاز Total Station</li>
+                        <li>ضبط الجهاز وإعداده</li>
+                        <li>الرفع المساحي الميداني</li>
+                        <li>حساب الإحداثيات</li>
+                        <li>التطبيقات العملية</li>
+                    </ul>
+                    <div class="course-price">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('Total Station')">التسجيل في الكورس</button>
+                </div>
+            </div>
+
+            <!-- Technical Office Course -->
+            <div class="course-card" data-aos="zoom-in" data-aos-delay="500" style="grid-column: span 2;">
+                <div class="course-image" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="course-content">
+                    <h3 style="color: var(--cyan);">كورس المكتب الفني الشامل</h3>
+                    <div style="background: rgba(6, 182, 212, 0.1); padding: 10px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--cyan);">
+                        <span style="color: var(--cyan); font-weight: bold;"><i class="fas fa-star"></i> كورس مكثف - 10 يوم</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>30 ساعة</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>شامل ومتقدم</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        برنامج تدريبي متكامل يؤهلك للعمل في المكتب الفني بكفاءة عالية - يشمل 4 برامج أساسية
+                    </p>
+                    <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <h4 style="color: var(--cyan); margin-bottom: 15px;"><i class="fas fa-list-check"></i> محتوى الكورس:</h4>
+                        <ul class="course-topics" style="column-count: 2; column-gap: 30px;">
+                            <li><strong style="color: var(--cyan);">AutoCAD:</strong> الرسم الهندسي الاحترافي</li>
+                            <li><strong style="color: var(--cyan);">Civil 3D:</strong> التصميم والمشاريع المدنية</li>
+                            <li><strong style="color: var(--cyan);">Excel:</strong> حساب الكميات والتحليل</li>
+                            <li><strong style="color: var(--cyan);">Sokkia Link:</strong> معالجة البيانات المساحية</li>
+                            <li>رسم المخططات التنفيذية</li>
+                            <li>حساب الكميات والتكاليف</li>
+                            <li>إعداد التقارير الفنية</li>
+                            <li>إدارة المشاريع الهندسية</li>
+                        </ul>
+                    </div>
+                    <div class="course-price" style="font-size: 1.3rem;">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('كورس المكتب الفني الشامل')" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">التسجيل في الكورس</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programming Courses -->
+        <h2 style="color: var(--cyan); margin: 80px 0 30px; font-size: 2rem;" data-aos="fade-up">كورسات البرمجة</h2>
+        
+        <div class="courses-grid">
+            <!-- HTML & CSS Course -->
+            <div class="course-card" data-aos="zoom-in">
+                <div class="course-image">
+                    <i class="fab fa-html5"></i>
+                </div>
+                <div class="course-content">
+                    <h3>HTML & CSS - تطوير المواقع</h3>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>30 ساعة</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>مبتدئ</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        تعلم أساسيات تطوير المواقع من الصفر حتى إنشاء مواقع احترافية
+                    </p>
+                    <ul class="course-topics">
+                        <li>أساسيات HTML5</li>
+                        <li>تنسيق CSS3 المتقدم</li>
+                        <li>Responsive Design</li>
+                        <li>Flexbox & Grid</li>
+                        <li>مشاريع عملية متكاملة</li>
+                    </ul>
+                    <div class="course-price">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('HTML & CSS')">التسجيل في الكورس</button>
+                </div>
+            </div>
+
+            <!-- C++ Course -->
+            <div class="course-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="course-image">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="course-content">
+                    <h3>C++ - البرمجة المتقدمة</h3>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>45 ساعة</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>متوسط-متقدم</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        إتقان لغة C++ للبرمجة الهيكلية والكائنية وتطوير التطبيقات
+                    </p>
+                    <ul class="course-topics">
+                        <li>أساسيات البرمجة بـ C++</li>
+                        <li>البرمجة الكائنية OOP</li>
+                        <li>هياكل البيانات</li>
+                        <li>الخوارزميات المتقدمة</li>
+                        <li>مشاريع تطبيقية</li>
+                    </ul>
+                    <div class="course-price">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('C++')">التسجيل في الكورس</button>
+                </div>
+            </div>
+
+            <!-- Programming Fundamentals Course -->
+            <div class="course-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="course-image">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="course-content">
+                    <h3>مبادئ البرمجة</h3>
+                    <div class="course-info">
+                        <div class="course-info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>40 ساعة</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-signal"></i>
+                            <span>مبتدئ</span>
+                        </div>
+                        <div class="course-info-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>شهادة معتمدة</span>
+                        </div>
+                    </div>
+                    <p class="course-description">
+                        تعلم أساسيات البرمجة وبناء أول تطبيقاتك - البداية الصحيحة لأي مبرمج
+                    </p>
+                    <ul class="course-topics">
+                        <li>مفاهيم البرمجة الأساسية</li>
+                        <li>المتغيرات وأنواع البيانات</li>
+                        <li>الشروط والحلقات</li>
+                        <li>الدوال والإجراءات</li>
+                        <li>حل المشكلات والخوارزميات</li>
+                    </ul>
+                    <div class="course-price">اتصل للاستفسار عن السعر</div>
+                    <button class="enroll-btn" onclick="enrollCourse('مبادئ البرمجة')">التسجيل في الكورس</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Packages -->
+        <div style="margin-top: 80px; background: rgba(6, 182, 212, 0.1); padding: 50px; border-radius: 20px; border: 1px solid var(--cyan);" data-aos="fade-up">
+            <h2 style="color: var(--cyan); text-align: center; margin-bottom: 30px;">باقات خاصة</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center;">
+                    <h3 style="color: var(--cyan); margin-bottom: 15px;">باقة المساحة الشاملة</h3>
+                    <p style="color: #94a3b8; margin-bottom: 20px;">Civil 3D + GIS + Total Station</p>
+                    <div style="font-size: 1.5rem; color: var(--cyan); font-weight: bold; margin: 20px 0;">
+                        اتصل للاستفسار عن السعر
+                    </div>
+                    <button class="enroll-btn" onclick="enrollCourse('باقة المساحة الشاملة')">احجز الباقة</button>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center;">
+                    <h3 style="color: var(--cyan); margin-bottom: 15px;">باقة تطوير المواقع</h3>
+                    <p style="color: #94a3b8; margin-bottom: 20px;">HTML & CSS </p>
+                    <div style="font-size: 1.5rem; color: var(--cyan); font-weight: bold; margin: 20px 0;">
+                        اتصل للاستفسار عن السعر
+                    </div>
+                    <button class="enroll-btn" onclick="enrollCourse('باقة تطوير المواقع')">احجز الباقة</button>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; text-align: center;">
+                    <h3 style="color: var(--cyan); margin-bottom: 15px;">الباقة الكاملة</h3>
+                    <p style="color: #94a3b8; margin-bottom: 20px;">جميع الكورسات</p>
+                    <div style="font-size: 1.5rem; color: var(--cyan); font-weight: bold; margin: 20px 0;">
+                        اتصل للاستفسار عن السعر
+                    </div>
+                    <button class="enroll-btn" onclick="enrollCourse('الباقة الكاملة')">احجز الباقة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن ECS</h3>
+                <p>شركة رائدة في مجال المساحة والهندسة المدنية، نقدم حلولًا متكاملة من الأجهزة والبرامج والتدريب.</p>
+            </div>
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <p><i class="fas fa-phone"></i>  +20 115 361 1556</p>
+                <p><i class="fas fa-envelope"></i> egyptioncontractingservay@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ECS - Engineering & Surveying Company. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Enrollment Modal -->
+    <div id="enrollModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="color: var(--cyan); margin-bottom: 20px;">التسجيل في الكورس</h2>
+            <form id="enrollForm">
+                <div class="form-group">
+                    <label>الكورس المختار</label>
+                    <input type="text" id="selectedCourse" readonly>
+                </div>
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" placeholder="أدخل بريدك الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" placeholder="أدخل رقم هاتفك" required>
+                </div>
+                <div class="form-group">
+                    <label>ملاحظات إضافية</label>
+                    <textarea placeholder="أي ملاحظات أو استفسارات..."></textarea>
+                </div>
+                <button type="submit" class="auth-submit">تأكيد التسجيل</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function enrollCourse(courseName) {
+            document.getElementById('selectedCourse').value = courseName;
+            document.getElementById('enrollModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('enrollModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('enrollModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.getElementById('enrollForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('تم التسجيل بنجاح! سنتواصل معك قريباً لتأكيد موعد بدء الكورس.');
+            closeModal();
+            this.reset();
+        });
+    </script>
+
+    <!-- Chatbot Script -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/enhancements.js"></script>
+</body>
+</html>

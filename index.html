@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECS | الريادة في تكنولوجيا المساحة والمقاولات</title>
+    <meta name="description" content="شركة ECS الرائدة في المساحة والهندسة المدنية">
+    <link rel="icon" href="images/logo.ico">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  	    <link rel="stylesheet" href="css/main.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+  <link rel="stylesheet" href="css/enhancements.css">
+
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="images/logo.ico" alt="ECS Logo">
+            </div>
+            <div class="loading-text">ECS</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-wrapper">
+        <div class="stars"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.ico" alt="ECS Logo">
+                <div class="logo-txt">
+                    <span class="main-logo">ECS</span>
+                    <span class="sub-logo">Engineering & Surveying</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="pages/about.html">من نحن</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#projects">مشاريعنا</a></li>
+               <!-- <li><a href="#process">طريقة العمل</a></li>-->
+                <li><a href="pages/courses.html">الكورسات</a></li>
+             <!--   <li><a href="pages/equipment.html">الأجهزة</a></li>  -->
+                <li><a href="pages/software.html">البرامج</a></li>
+                <li><a href="pages/login.html" class="login-pill">دخول الأعضاء</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+		  <h1 data-aos="fade-up" class="text-logo">
+                المصرية <span class="cyan-text-logo" >للمقاولات والمساحة</span>
+            </h1>
+            <label class="w" data-aos="fade-up">
+                دقة تلامس <span class="cyan-text">عنان السماء</span>
+            </label>
+            <p data-aos="fade-up" data-aos-delay="200">
+                في <b>ECS</b>، نحن لا نرسم خرائط فقط، بل نبني أسس المستقبل. باستخدام أحدث أجهزة الـ Total Station وتكنولوجيا الأقمار الصناعية، نضمن لك دقة تصل إلى المليمتر في أعقد المشاريع الهندسية.
+            </p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="btn-main">ابدأ مشروعك الآن</a>
+                <a href="#services" class="btn-outline">اكتشف خدماتنا</a>
+            </div>
+        </div>
+        
+        <div class="hero-visual" data-aos="fade-left" data-aos-delay="300">
+            <div id="earth-container"></div>
+        </div>
+    </header>
+
+   
+
+    <section id="services" class="section">
+        <h2 class="section-title" data-aos="fade-up">خدماتنا المتكاملة</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            نقدم حلولاً متكاملة في مجال المساحة والهندسة المدنية بأحدث التقنيات العالمية
+        </p>
+        
+        <div class="grid-3">
+            <!-- Service 1: Technical Office -->
+            <div class="service-card" data-aos="zoom-in">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>مكتب فني كامل</h3>
+                <p>نقدم خدمات مكتب فني متكامل لجميع أنواع المشاريع الهندسية والمساحية بأعلى معايير الجودة</p>
+                <ul class="service-features">
+                    <li>✓ إعداد المخططات الهندسية</li>
+                    <li>✓ حسابات المساحة والكميات</li>
+                    <li>✓ التصميمات الإنشائية</li>
+                    <li>✓ إدارة المشاريع الهندسية</li>
+                    <li>✓ الإشراف الفني الكامل</li>
+                </ul>
+                <a href="#contact" class="btn-main" style="margin-top: 20px; font-size: 0.95rem; padding: 12px 28px;">اطلب الخدمة</a>
+            </div>
+
+            <!-- Service 2: Equipment Rental -->
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="service-icon">
+                    <i class="fas fa-ruler-combined"></i>
+                </div>
+                <h3>إيجار الأجهزة المساحية</h3>
+                <p>نوفر أحدث أجهزة Total Station و GPS بدقة عالية تصل إلى المليمتر، مع الصيانة الدورية والدعم الفني</p>
+                <ul class="service-features">
+                    <li>✓ Leica, Trimble, Topcon</li>
+                    <li>✓ دقة تصل إلى 2 ثانية قوسية</li>
+                    <li>✓ صيانة ودعم مجاني</li>
+                    <li>✓ توصيل لجميع المحافظات</li>
+                    <li>✓ فرق مساحية متكاملة</li>
+                </ul>
+<a href="#contact" class="btn-main shine" style="margin-top: 20px; font-size: 0.95rem; padding: 12px 28px;">تواصل معنا</a>            </div>
+
+            <!-- Service 3: Project Management -->
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>إدارة المشاريع</h3>
+                <p>إدارة شاملة ومتكاملة لجميع أنواع المشاريع المساحية والهندسية من البداية للنهاية</p>
+                <ul class="service-features">
+                    <li>✓ تخطيط وجدولة المشاريع</li>
+                    <li>✓ إدارة الفرق الميدانية</li>
+                    <li>✓ ضبط الجودة Quality Control</li>
+                    <li>✓ إعداد التقارير الدورية</li>
+                    <li>✓ التسليم في الوقت المحدد</li>
+                </ul>
+                <a href="#contact" class="btn-main" style="margin-top: 20px; font-size: 0.95rem; padding: 12px 28px;">تواصل معنا</a>
+            </div>
+
+            <!-- Service 4: Equipment Sales -->
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>بيع الأجهزة المساحية</h3>
+                <p>نوفر أجهزة مساحية أصلية من أفضل الشركات العالمية بأسعار منافسة وضمان شامل</p>
+                <ul class="service-features">
+                    <li>✓ أجهزة أصلية 100%</li>
+                    <li>✓ ضمان الوكيل المعتمد</li>
+
+                </ul>
+                <a href="#contact" class="btn-main" style="margin-top: 20px; font-size: 0.95rem; padding: 12px 28px;">اطلب عرض سعر</a>
+            </div>
+
+            <!-- Service 5: Software Sales -->
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>بيع البرامج المساحية</h3>
+                <p>برامج مساحية حصرية من تطويرنا الخاص - غير متوفرة في أي مكان آخر في العالم</p>
+                <ul class="service-features">
+                    <li>✓ تطوير حصري</li>
+                    <li>✓ رخصة دائمة</li>
+                    <li>✓ دعم فني مستمر</li>
+                </ul>
+                <a href="pages/software.html" class="btn-main" style="margin-top: 20px; font-size: 0.95rem; padding: 12px 28px;">اكتشف البرامج</a>
+            </div>
+
+            <!-- Service 6: Training -->
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>الدورات التدريبية</h3>
+                <p>برامج تدريبية شاملة في Civil 3D, AutoCAD, GIS والبرمجة مع شهادات معتمدة</p>
+                <ul class="service-features">
+                    <li>✓ شهادات معتمدة</li>
+                    <li>✓ تدريب عملي وتطبيقي</li>
+                    <li>✓ مدربون خبراء (15+ سنة)</li>
+                    <li>✓ دعم بعد التخرج</li>
+                    <li>✓ مشاريع حقيقية</li>
+                </ul>
+                <a href="pages/courses.html" class="btn-main" style="margin-top: 20px; font-size: 0.95rem; padding: 12px 28px;">شاهد الكورسات</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section section-alt">
+        <h2 class="section-title" data-aos="fade-up">مشاريعنا المنجزة</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            شاركنا في العديد من المشاريع الكبرى في مصر بأعلى معايير الجودة
+        </p>
+
+        <div class="grid-3">
+            <div class="project-card" data-aos="zoom-in">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/111.jpg" alt="محطة الضبعة النووية" class="project-image">
+                    <span class="project-badge">مشروع قومي</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">محطة الضبعة النووية</h3>
+                    <p class="project-description">
+                        أعمال المساحة الشاملة لمشروع محطة الضبعة النووية
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>الضبعة، مطروح</span>
+                        </div>
+                        <div class="project-detail-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>مكتمل</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/الضبعة_2.jpg" alt="أعمال الإنشاءات" class="project-image">
+                    <span class="project-badge">قيد التنفيذ</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">أعمال الرصد والإنشاءات</h3>
+                    <p class="project-description">
+                        رصد ومتابعة دقيقة لأعمال الحفر والإنشاءات
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail-item">
+                            <i class="fas fa-tools"></i>
+                            <span>Total Station & GPS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/2211.jpg" alt="رصد الموقع" class="project-image">
+                    <span class="project-badge">مشروع نووي</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">رصد وتوثيق الموقع</h3>
+                    <p class="project-description">
+                        أعمال الرصد المساحي الدقيق وتوثيق جميع مراحل البناء
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail-item">
+                            <i class="fas fa-crosshairs"></i>
+                            <span>دقة مليمترية</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/22.jpg" alt="ترميم القلعة" class="project-image">
+                    <span class="project-badge">ترميم أثري</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">مشروع ترميم القلعة</h3>
+                    <p class="project-description">
+                        أعمال المساحة والرصد الدقيق لمشروع ترميم القلعة التاريخية
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail-item">
+                            <i class="fas fa-landmark"></i>
+                            <span>موقع تاريخي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/4444.jpg" alt="مساحة الموقع الأثري" class="project-image">
+                    <span class="project-badge">أثري</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">مساحة وتخطيط الموقع الأثري</h3>
+                    <p class="project-description">
+                        رفع مساحي شامل للموقع الأثري وإعداد الخرائط التفصيلية
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail-item">
+                            <i class="fas fa-map"></i>
+                            <span>خرائط تفصيلية</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/555.jpg" alt="رفع ساحلي" class="project-image">
+                    <span class="project-badge">رفع ساحلي</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">رفع مساحي للمناطق الساحلية</h3>
+                    <p class="project-description">
+                        أعمال رفع مساحي دقيق للمناطق الساحلية باستخدام GPS/GNSS
+                    </p>
+                    <div class="project-details">
+                        <div class="project-detail-item">
+                            <i class="fas fa-satellite"></i>
+                            <span>GPS/GNSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-4" style="margin-top: 50px;">
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/WhatsApp_Image_2025-02-12_at_08_42_01_61897929.jpg" alt="Total Station" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" style="font-size: 1.3rem;">رصد Total Station</h3>
+                    <p class="project-description" style="font-size: 0.9rem;">
+                        أعمال الرصد المساحي الدقيق
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/33.jpg" alt="GPS Survey" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" style="font-size: 1.3rem;">رفع GPS</h3>
+                    <p class="project-description" style="font-size: 0.9rem;">
+                        رصد ميداني باستخدام أحدث أجهزة GPS
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/WhatsApp_Image_2025-02-12_at_08_48_26_22b62f30.jpg" alt="Construction" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" style="font-size: 1.3rem;">مساحة إنشائية</h3>
+                    <p class="project-description" style="font-size: 0.9rem;">
+                        أعمال المساحة للمشاريع الإنشائية
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-image-wrapper">
+                    <img src="images/projects/WhatsApp_Image_2025-02-12_at_08_54_52_ea75b004.jpg" alt="Equipment" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title" style="font-size: 1.3rem;">أحدث الأجهزة</h3>
+                    <p class="project-description" style="font-size: 0.9rem;">
+                        نستخدم أحدث أجهزة المساحة
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title" data-aos="fade-up">لماذا تختار ECS؟</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            نحن الخيار الأول للمشاريع الهندسية والمساحية في مصر
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-item" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h4>خبرة طويلة</h4>
+                <p>أكثر من 30 عامًا في المساحة والهندسة</p>
+            </div>
+
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h4>شهادات معتمدة</h4>
+                <p>معتمدون من الجهات الرسمية</p>
+            </div>
+
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4>دعم مستمر</h4>
+                <p>فريق دعم على مدار الساعة</p>
+            </div>
+
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h4>أحدث التقنيات</h4>
+                <p>نستخدم أحدث الأجهزة والبرامج</p>
+            </div>
+
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h4>أسعار تنافسية</h4>
+                <p>أفضل الأسعار مع الجودة العالية</p>
+            </div>
+
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>التزام بالمواعيد</h4>
+                <p>نلتزم بالتسليم في الوقت المحدد</p>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <h2 class="section-title" data-aos="fade-up">ماذا يقول عملاؤنا</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            آراء حقيقية من عملائنا الكرام
+        </p>
+
+        <div class="grid-3" style="margin-top: 50px;">
+            <div class="glass-card" style="padding: 30px;" data-aos="zoom-in">
+                <div style="color: var(--primary); font-size: 3rem; margin-bottom: 15px;">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <p style="color: #cbd5e1; line-height: 1.8; margin-bottom: 20px; font-style: italic;">
+                    "ECS من أفضل الشركات اللي اشتغلت معاها. الدقة والاحترافية في أعلى مستوى. 
+                    شغلوا معانا في مشروع العاصمة الإدارية وكانوا في قمة التميز."
+                </p>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" style="padding: 30px;" data-aos="zoom-in" data-aos-delay="100">
+                <div style="color: var(--primary); font-size: 3rem; margin-bottom: 15px;">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <p style="color: #cbd5e1; line-height: 1.8; margin-bottom: 20px; font-style: italic;">
+                    "الفريق محترف جداً والأجهزة حديثة. استأجرنا منهم Total Station لمدة شهر 
+                    والخدمة كانت ممتازة من أول يوم. الدعم الفني سريع ومفيد."
+                </p>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" style="padding: 30px;" data-aos="zoom-in" data-aos-delay="200">
+                <div style="color: var(--primary); font-size: 3rem; margin-bottom: 15px;">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <p style="color: #cbd5e1; line-height: 1.8; margin-bottom: 20px; font-style: italic;">
+                    "الكورسات عندهم قوية جداً! خدت كورس Civil 3D واستفدت كتير. 
+                    المدربين خبرة والشهادة معتمدة. ترشيح أكيد لأي حد عايز يتعلم."
+                </p>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-alt" id="faq">
+        <h2 class="section-title" data-aos="fade-up">الأسئلة الشائعة</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            إجابات على أكثر الأسئلة شيوعاً
+        </p>
+
+        <div style="max-width: 900px; margin: 50px auto 0;">
+            <div class="glass-card faq-item" style="padding: 25px; margin-bottom: 20px; cursor: pointer;" data-aos="fade-up" onclick="toggleFAQ(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="color: var(--primary); font-size: 1.2rem;">ما هي أنواع الأجهزة المتوفرة للإيجار؟</h3>
+                    <i class="fas fa-chevron-down" style="color: var(--primary); transition: transform 0.3s;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                    <p style="color: #cbd5e1; line-height: 1.8; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,107,53,0.2);">
+                        نوفر جميع أنواع الأجهزة المساحية الحديثة: Total Station (Leica TS16, Topcon ES-105, Trimble S9)، 
+                        أجهزة GPS/GNSS، أجهزة Laser، Digital Levels، وجميع الملحقات.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card faq-item" style="padding: 25px; margin-bottom: 20px; cursor: pointer;" data-aos="fade-up" data-aos-delay="50" onclick="toggleFAQ(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="color: var(--primary); font-size: 1.2rem;">هل توفرون فرق مساحية كاملة؟</h3>
+                    <i class="fas fa-chevron-down" style="color: var(--primary); transition: transform 0.3s;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                    <p style="color: #cbd5e1; line-height: 1.8; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,107,53,0.2);">
+                        نعم، نوفر فرق مساحية متكاملة بمهندسين وفنيين ذوي خبرة عالية. الفرق تشمل المهندسين المعتمدين، 
+                        الفنيين المحترفين، وجميع الأجهزة اللازمة. نعمل في جميع محافظات مصر.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card faq-item" style="padding: 25px; margin-bottom: 20px; cursor: pointer;" data-aos="fade-up" data-aos-delay="100" onclick="toggleFAQ(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="color: var(--primary); font-size: 1.2rem;">كم مدة الإيجار المتاحة؟</h3>
+                    <i class="fas fa-chevron-down" style="color: var(--primary); transition: transform 0.3s;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                    <p style="color: #cbd5e1; line-height: 1.8; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,107,53,0.2);">
+                        نوفر خيارات إيجار مرنة: يوم واحد، أسبوع، شهر، أو فترات أطول حسب احتياجاتك. 
+                        نقدم خصومات خاصة للإيجار طويل المدى.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card faq-item" style="padding: 25px; margin-bottom: 20px; cursor: pointer;" data-aos="fade-up" data-aos-delay="150" onclick="toggleFAQ(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="color: var(--primary); font-size: 1.2rem;">هل الكورسات معتمدة؟</h3>
+                    <i class="fas fa-chevron-down" style="color: var(--primary); transition: transform 0.3s;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                    <p style="color: #cbd5e1; line-height: 1.8; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,107,53,0.2);">
+                        نعم، جميع كورساتنا معتمدة وتحصل على شهادة رسمية من ECS. الشهادات معترف بها في سوق العمل 
+                        ونقدم دعم ما بعد الكورس.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card faq-item" style="padding: 25px; cursor: pointer;" data-aos="fade-up" data-aos-delay="200" onclick="toggleFAQ(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="color: var(--primary); font-size: 1.2rem;">هل توفرون خدمة التوصيل؟</h3>
+                    <i class="fas fa-chevron-down" style="color: var(--primary); transition: transform 0.3s;"></i>
+                </div>
+                <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                    <p style="color: #cbd5e1; line-height: 1.8; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,107,53,0.2);">
+                        نعم، نوفر خدمة توصيل الأجهزة لجميع محافظات مصر. التوصيل داخل القاهرة والجيزة مجاني، 
+                        وباقي المحافظات برسوم رمزية.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="section-title" data-aos="fade-up">تواصل معنا</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                نحن هنا لخدمتك - تواصل معنا الآن وابدأ مشروعك
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item" data-aos="zoom-in">
+                    <i class="fas fa-phone"></i>
+                    <h3>الهاتف</h3>
+                    <p dir="ltr">+20 115 361 1556</p>
+                    <p dir="ltr">+20 102 131 3489</p>
+                </div>
+
+                <div class="contact-item" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-envelope"></i>
+                    <h3>البريد الإلكتروني</h3>
+                    <p>egyptioncontractingservay@gmail.com</p>
+                    <p>mos562004@gmail.com</p>
+                </div>
+
+                <div class="contact-item" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>العنوان</h3>
+                    <p>الجيزة، مصر</p>
+					<p>الهرم-عماره 2 شارع الثورة من سهل حمزة </p>
+                    <p>متاح في جميع المحافظات</p>
+                </div>
+            </div>
+
+            <form class="form-box" data-aos="fade-up" style="margin-top: 50px;">
+                <h3 style="text-align: center; color: var(--cyan); margin-bottom: 25px; font-size: 1.8rem;">أرسل لنا رسالة</h3>
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" placeholder="أدخل بريدك الإلكتروني" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" placeholder="أدخل رقم هاتفك" required>
+                </div>
+                <div class="form-group">
+                    <label>الموضوع</label>
+                    <input type="text" placeholder="موضوع الرسالة" required>
+                </div>
+                <div class="form-group">
+                    <label>الرسالة</label>
+                    <textarea placeholder="اكتب رسالتك هنا..." required></textarea>
+                </div>
+                <button type="submit" class="form-submit">إرسال الرسالة</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن ECS</h3>
+                <p>شركة رائدة في مجال المساحة والهندسة المدنية، نقدم حلولًا متكاملة بأعلى معايير الجودة.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="pages/courses.html">الكورسات</a></li>
+                <!--    <li><a href="pages/equipment.html">الأجهزة</a></li>  -->
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>خدماتنا</h3>
+                <ul>
+                    <li><a href="#">المساحة الأرضية</a></li>
+                    <li><a href="#">المساحة الجوية</a></li>
+                    <li><a href="#">نظم المعلومات الجغرافية</a></li>
+                    <li><a href="#">التصميم المدني</a></li>
+                    <li><a href="#">الاستشارات الهندسية</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>ساعات العمل</h3>
+                <p><strong>السبت - الخميس</strong></p>
+                <p>9:00 صباحًا - 6:00 مساءً</p>
+                <p style="margin-top: 15px;"><strong>الجمعة:</strong> مغلق</p>
+                <p style="margin-top: 15px; color: var(--cyan); font-weight: 600;">
+                    <i class="fas fa-phone-volume"></i> خدمة الطوارئ 24/7
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 ECS - Engineering & Surveying Company. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/earth.js"></script>
+    <script>
+        AOS.init({ 
+            duration: 1000, 
+            once: true,
+            offset: 100
+        });
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.');
+            this.reset();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Chatbot Script -->
+    <script src="js/chatbot.js"></script>
+    
+    <!-- Enhancements Script -->
+    <script src="js/enhancements.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد | ECS</title>
+    <link rel="icon" href="../images/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    <link rel="stylesheet" href="../css/enhancements.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-wrapper">
+        <div class="stars"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../images/logo.ico" alt="ECS">
+                <div class="logo-txt">
+                    <span class="main-logo">ECS</span>
+                    <span class="sub-logo">Engineering & Surveying</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="../index.html#services">خدماتنا</a></li>
+                <li><a href="courses.html">الكورسات</a></li>
+                <li><a href="software.html">البرامج</a></li>
+                <li><a href="login.html" class="login-pill">دخول الأعضاء</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Signup Section -->
+    <div class="auth-container">
+        <div class="auth-box">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <img src="../images/logo.ico" alt="ECS" style="width: 80px; filter: drop-shadow(0 0 10px var(--cyan));">
+            </div>
+            
+            <h2>إنشاء حساب جديد</h2>
+            
+            <form id="signupForm">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" id="fullname" placeholder="أدخل اسمك الكامل" required>
+                </div>
+
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني" required>
+                </div>
+
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required>
+                </div>
+
+                <div class="form-group">
+                    <label>التخصص</label>
+                    <select id="specialty" required>
+                        <option value="">اختر التخصص</option>
+                        <option value="civil">هندسة مدنية</option>
+                        <option value="surveying">مساحة</option>
+                        <option value="architecture">عمارة</option>
+                        <option value="gis">نظم معلومات جغرافية</option>
+                        <option value="other">أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+                </div>
+
+                <div class="form-group">
+                    <label>تأكيد كلمة المرور</label>
+                    <input type="password" id="confirmPassword" placeholder="أعد إدخال كلمة المرور" required>
+                </div>
+
+                <div class="form-group">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" id="terms" required style="width: auto; margin: 0;">
+                        <span>أوافق على <a href="#" style="color: var(--cyan);">الشروط والأحكام</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-submit">إنشاء الحساب</button>
+
+                <div class="auth-links">
+                    <p>لديك حساب بالفعل؟ <a href="login.html">سجل الدخول</a></p>
+                </div>
+            </form>
+
+            <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(6, 182, 212, 0.2);">
+                <p style="text-align: center; color: #94a3b8; margin-bottom: 15px;">أو سجل باستخدام</p>
+                <div style="display: flex; gap: 10px; justify-content: center;">
+                    <button style="flex: 1; padding: 12px; background: #1877f2; border: none; color: white; border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif;">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </button>
+                    <button style="flex: 1; padding: 12px; background: #db4437; border: none; color: white; border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif;">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+
+            if(password !== confirmPassword) {
+                alert('كلمات المرور غير متطابقة!');
+                return;
+            }
+
+            if(!terms) {
+                alert('يجب الموافقة على الشروط والأحكام');
+                return;
+            }
+
+            alert('تم إنشاء حسابك بنجاح!\nمرحباً بك في ECS');
+            window.location.href = 'login.html';
+        });
+    </script>
+
+    <!-- Chatbot Script -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/enhancements.js"></script>
+</body>
+</html>

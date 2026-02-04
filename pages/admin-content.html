@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة محتوى الموقع | Admin Dashboard</title>
+    <link rel="icon" href="../images/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+    <style>
+        .content-editor {
+            background: var(--admin-dark);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .editor-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .editor-section:last-child {
+            border-bottom: none;
+        }
+
+        .editor-section h3 {
+            color: var(--admin-primary);
+            margin: 0 0 20px 0;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .color-picker-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .color-picker-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .color-picker-item label {
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .color-input-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .color-input-wrapper input[type="color"] {
+            width: 60px;
+            height: 40px;
+            border: 2px solid rgba(6, 182, 212, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .color-input-wrapper input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+        }
+
+        .preview-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(6, 182, 212, 0.05);
+            border-radius: 12px;
+            border: 2px dashed rgba(6, 182, 212, 0.2);
+        }
+
+        .preview-box h4 {
+            color: #fff;
+            margin: 0 0 15px 0;
+            font-size: 16px;
+        }
+
+        .slider-container {
+            margin: 20px 0;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #94a3b8;
+        }
+
+        .slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(6, 182, 212, 0.1);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--admin-primary);
+            cursor: pointer;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(148, 163, 184, 0.3);
+            transition: .4s;
+            border-radius: 30px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background-color: var(--admin-primary);
+        }
+
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(30px);
+        }
+
+        .feature-toggles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .toggle-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(6, 182, 212, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .toggle-item label {
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .image-upload-area {
+            padding: 40px;
+            border: 2px dashed rgba(6, 182, 212, 0.3);
+            border-radius: 12px;
+            text-align: center;
+            background: rgba(6, 182, 212, 0.02);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .image-upload-area:hover {
+            border-color: var(--admin-primary);
+            background: rgba(6, 182, 212, 0.05);
+        }
+
+        .image-upload-area i {
+            font-size: 48px;
+            color: var(--admin-primary);
+            margin-bottom: 15px;
+        }
+
+        .uploaded-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .uploaded-image-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .uploaded-image-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .image-remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 30px;
+            height: 30px;
+            background: rgba(239, 68, 68, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-mini-card {
+            background: rgba(6, 182, 212, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .stat-mini-card h4 {
+            color: #94a3b8;
+            font-size: 13px;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .stat-mini-card .value {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-preview-site {
+            padding: 12px 25px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid var(--admin-info);
+            color: var(--admin-info);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-preview-site:hover {
+            background: rgba(59, 130, 246, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if(sessionStorage.getItem('isAdmin') !== 'true') {
+            alert('غير مصرح لك بالدخول إلى هذه الصفحة!');
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <div class="admin-wrapper">
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logo.ico" alt="ECS">
+                <div class="admin-info">
+                    <h3>Admin Panel</h3>
+                    <p id="adminEmail">anas@gmail.com</p>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li><a href="admin-dashboard.html"><i class="fas fa-chart-line"></i> <span>لوحة التحكم</span></a></li>
+                <li><a href="#" class="active"><i class="fas fa-palette"></i> <span>تخصيص الموقع</span></a></li>
+                <li><a href="admin-dashboard.html"><i class="fas fa-arrow-right"></i> <span>العودة</span></a></li>
+            </ul>
+
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+            </button>
+        </aside>
+
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1>تخصيص شكل ومحتوى الموقع</h1>
+                <p>تحكم كامل في تصميم وألوان وخصائص الموقع</p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-cards">
+                <div class="stat-mini-card">
+                    <h4>آخر تحديث</h4>
+                    <div class="value" style="font-size: 14px; color: var(--admin-primary);">
+                        <i class="fas fa-clock"></i> منذ 5 دقائق
+                    </div>
+                </div>
+                <div class="stat-mini-card">
+                    <h4>التغييرات المحفوظة</h4>
+                    <div class="value">23</div>
+                </div>
+                <div class="stat-mini-card">
+                    <h4>حالة الموقع</h4>
+                    <div class="value" style="font-size: 16px; color: var(--admin-success);">
+                        <i class="fas fa-check-circle"></i> نشط
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colors Section -->
+            <div class="content-editor">
+                <div class="editor-section">
+                    <h3><i class="fas fa-palette"></i> ألوان الموقع</h3>
+                    <div class="color-picker-group">
+                        <div class="color-picker-item">
+                            <label>اللون الأساسي (Primary)</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" value="#06b6d4" id="primaryColor">
+                                <input type="text" value="#06b6d4" id="primaryColorText" readonly>
+                            </div>
+                        </div>
+                        <div class="color-picker-item">
+                            <label>اللون الثانوي (Secondary)</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" value="#0891b2" id="secondaryColor">
+                                <input type="text" value="#0891b2" id="secondaryColorText" readonly>
+                            </div>
+                        </div>
+                        <div class="color-picker-item">
+                            <label>لون الخلفية الداكنة</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" value="#0e1a2b" id="darkBg">
+                                <input type="text" value="#0e1a2b" id="darkBgText" readonly>
+                            </div>
+                        </div>
+                        <div class="color-picker-item">
+                            <label>لون النصوص</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" value="#94a3b8" id="textColor">
+                                <input type="text" value="#94a3b8" id="textColorText" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-box">
+                        <h4>معاينة الألوان:</h4>
+                        <div style="display: flex; gap: 15px; margin-top: 10px;">
+                            <button class="btn-submit" style="pointer-events: none;">زر أساسي</button>
+                            <button class="btn-cancel" style="pointer-events: none;">زر ثانوي</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography Section -->
+                <div class="editor-section">
+                    <h3><i class="fas fa-font"></i> الخطوط والنصوص</h3>
+                    <div class="admin-form">
+                        <div class="form-group">
+                            <label>حجم العنوان الرئيسي</label>
+                            <div class="slider-container">
+                                <div class="slider-label">
+                                    <span>32px</span>
+                                    <span id="h1SizeValue">48px</span>
+                                    <span>72px</span>
+                                </div>
+                                <input type="range" class="slider" min="32" max="72" value="48" id="h1Size">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>حجم النص العادي</label>
+                            <div class="slider-container">
+                                <div class="slider-label">
+                                    <span>14px</span>
+                                    <span id="bodyTextSizeValue">16px</span>
+                                    <span>20px</span>
+                                </div>
+                                <input type="range" class="slider" min="14" max="20" value="16" id="bodyTextSize">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>نوع الخط</label>
+                            <select>
+                                <option value="Cairo" selected>Cairo (الحالي)</option>
+                                <option value="Tajawal">Tajawal</option>
+                                <option value="Almarai">Almarai</option>
+                                <option value="Amiri">Amiri</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Toggle -->
+                <div class="editor-section">
+                    <h3><i class="fas fa-toggle-on"></i> خصائص الموقع</h3>
+                    <div class="feature-toggles">
+                        <div class="toggle-item">
+                            <label>شاشة التحميل</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label>الشات بوت الذكي</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label>زر واتساب</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label>النجوم المتحركة</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label>تأثيرات AOS</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <label>وضع الصيانة</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo & Images -->
+                <div class="editor-section">
+                    <h3><i class="fas fa-images"></i> الشعار والصور</h3>
+                    <div class="admin-form">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>تغيير شعار الموقع</label>
+                            <div class="image-upload-area" onclick="document.getElementById('logoUpload').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p style="color: #94a3b8; margin: 10px 0;">اضغط لرفع الشعار الجديد</p>
+                                <small style="color: #64748b;">PNG, JPG, SVG - الحجم المثالي: 200x200</small>
+                                <input type="file" id="logoUpload" accept="image/*" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>صور الخلفية (Hero Section)</label>
+                            <div class="image-upload-area" onclick="document.getElementById('bgUpload').click()">
+                                <i class="fas fa-image"></i>
+                                <p style="color: #94a3b8; margin: 10px 0;">رفع صورة خلفية</p>
+                                <small style="color: #64748b;">JPG, PNG - الحجم المثالي: 1920x1080</small>
+                                <input type="file" id="bgUpload" accept="image/*" multiple style="display: none;">
+                            </div>
+                            <div class="uploaded-images" id="uploadedImages"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Page Content -->
+                <div class="editor-section">
+                    <h3><i class="fas fa-home"></i> محتوى الصفحة الرئيسية</h3>
+                    <div class="admin-form">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>العنوان الرئيسي</label>
+                            <input type="text" value="المصرية للمقاولات والمساحة">
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>الشعار التسويقي</label>
+                            <input type="text" value="دقة تلامس عنان السماء">
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>وصف الشركة</label>
+                            <textarea rows="4">في ECS، نحن لا نرسم خرائط فقط، بل نبني أسس المستقبل. باستخدام أحدث أجهزة الـ Total Station وتكنولوجيا الأقمار الصناعية، نضمن لك دقة تصل إلى المليمتر في أعقد المشاريع الهندسية.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>نص زر البداية</label>
+                            <input type="text" value="ابدأ مشروعك الآن">
+                        </div>
+                        <div class="form-group">
+                            <label>نص الزر الثانوي</label>
+                            <input type="text" value="اكتشف خدماتنا">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="editor-section">
+                    <h3><i class="fas fa-share-alt"></i> روابط التواصل الاجتماعي</h3>
+                    <div class="admin-form">
+                        <div class="form-group">
+                            <label><i class="fab fa-facebook"></i> فيسبوك</label>
+                            <input type="url" value="https://facebook.com/ecs" placeholder="رابط الفيسبوك">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-twitter"></i> تويتر (X)</label>
+                            <input type="url" value="https://twitter.com/ecs" placeholder="رابط تويتر">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-instagram"></i> انستجرام</label>
+                            <input type="url" value="https://instagram.com/ecs" placeholder="رابط انستجرام">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-linkedin"></i> لينكد إن</label>
+                            <input type="url" value="https://linkedin.com/company/ecs" placeholder="رابط لينكد إن">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-youtube"></i> يوتيوب</label>
+                            <input type="url" value="https://youtube.com/@ecs" placeholder="رابط يوتيوب">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fab fa-whatsapp"></i> واتساب</label>
+                            <input type="tel" value="201153611556" placeholder="رقم الواتساب">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO Settings -->
+                <div class="editor-section" style="border-bottom: none;">
+                    <h3><i class="fas fa-search"></i> إعدادات SEO</h3>
+                    <div class="admin-form">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>عنوان الصفحة (Title)</label>
+                            <input type="text" value="ECS | الريادة في تكنولوجيا المساحة والمقاولات" maxlength="60">
+                            <small style="color: #64748b; margin-top: 5px;">الطول المثالي: 50-60 حرف</small>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>الوصف (Meta Description)</label>
+                            <textarea rows="3" maxlength="160">شركة ECS الرائدة في المساحة والهندسة المدنية. نقدم خدمات متكاملة باستخدام أحدث التقنيات العالمية.</textarea>
+                            <small style="color: #64748b; margin-top: 5px;">الطول المثالي: 150-160 حرف</small>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>الكلمات المفتاحية (Keywords)</label>
+                            <input type="text" value="مساحة, مقاولات, Total Station, AutoCAD, Civil 3D, هندسة مدنية">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn-submit" onclick="saveChanges()">
+                    <i class="fas fa-save"></i> حفظ جميع التغييرات
+                </button>
+                <button class="btn-preview-site" onclick="previewSite()">
+                    <i class="fas fa-eye"></i> معاينة الموقع
+                </button>
+                <button class="btn-cancel" onclick="resetChanges()">
+                    <i class="fas fa-undo"></i> إعادة تعيين
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('adminEmail').textContent = sessionStorage.getItem('adminEmail');
+
+        // Color pickers sync
+        document.querySelectorAll('input[type="color"]').forEach(input => {
+            input.addEventListener('input', function() {
+                const textInput = document.getElementById(this.id + 'Text');
+                if(textInput) textInput.value = this.value;
+            });
+        });
+
+        // Sliders sync
+        document.getElementById('h1Size').addEventListener('input', function() {
+            document.getElementById('h1SizeValue').textContent = this.value + 'px';
+        });
+
+        document.getElementById('bodyTextSize').addEventListener('input', function() {
+            document.getElementById('bodyTextSizeValue').textContent = this.value + 'px';
+        });
+
+        // Image upload preview
+        document.getElementById('bgUpload').addEventListener('change', function(e) {
+            const container = document.getElementById('uploadedImages');
+            Array.from(e.target.files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const html = `
+                        <div class="uploaded-image-item">
+                            <img src="${e.target.result}" alt="Uploaded">
+                            <button class="image-remove-btn" onclick="this.parentElement.remove()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', html);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        function saveChanges() {
+            // Simulate saving
+            const btn = event.target;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> تم الحفظ بنجاح!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-save"></i> حفظ جميع التغييرات';
+                    btn.disabled = false;
+                }, 2000);
+            }, 1500);
+        }
+
+        function previewSite() {
+            window.open('../index.html', '_blank');
+        }
+
+        function resetChanges() {
+            if(confirm('هل أنت متأكد من إعادة تعيين جميع التغييرات؟')) {
+                location.reload();
+            }
+        }
+
+        function logout() {
+            if(confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+                sessionStorage.removeItem('isAdmin');
+                sessionStorage.removeItem('adminEmail');
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>
